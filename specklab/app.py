@@ -2,6 +2,8 @@ import pygame
 from pygame import Surface
 from pygame.time import Clock
 
+from specklab.sim import Sim
+
 font = pygame.font.Font(None, 30)
 
 
@@ -17,6 +19,8 @@ class App:
 
     screen_refresh: int
 
+    sim: Sim
+
     def __init__(self, screen_size: tuple[int, int], screen_refresh: int):
         self.screen_size = self.screen_w, self.screen_h = screen_size
         self.screen_refresh = screen_refresh
@@ -24,6 +28,8 @@ class App:
         self.screen = pygame.display.set_mode(screen_size)
         self.clock = Clock()
         self.running = False
+
+        self.sim = Sim((100, 100))
 
     def start(self) -> None:
         self.running = True
@@ -42,6 +48,8 @@ class App:
             if event.type == pygame.QUIT:
                 self.running = False
                 return
+
+        self.sim.update(dt)
 
         self.render(dt)
         pygame.display.flip()

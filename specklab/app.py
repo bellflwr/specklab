@@ -3,6 +3,7 @@ from pygame import Surface
 from pygame.time import Clock
 
 from specklab.sim import Sim
+from specklab.render import render_basic
 
 font = pygame.font.Font(None, 30)
 
@@ -56,6 +57,8 @@ class App:
 
     def render(self, dt: float) -> None:
         self.screen.fill((0, 0, 0))
+
+        render_basic(self.screen, self.sim)
 
         fps = str(round(self.clock.get_fps()))
 

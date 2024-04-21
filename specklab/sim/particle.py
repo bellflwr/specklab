@@ -14,7 +14,7 @@ class Ptc:
     vel: Vector2
     acc: Vector2
 
-    color: Color | None
+    color: Color
 
     def __init__(
         self,

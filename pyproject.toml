@@ -10,6 +10,11 @@ python = "^3.11"
 pygame = "^2.5.2"
 
 
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.0"
+mypy = "^1.9.0"
+ruff = "^0.4.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
